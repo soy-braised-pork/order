@@ -22,9 +22,10 @@ public class UserService {
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes(StandardCharsets.UTF_8)));
         return userDao.insertUser(user) != 0;
     }
-    public User selectByUsername(String username,String password){
-        User user=null;
-        if (null!=username){
+
+    public User selectByUsername(String username, String password) {
+        User user = null;
+        if (null != username) {
             user = userDao.selectByUsernameAndPassword(username, password);
         }
         return user;
